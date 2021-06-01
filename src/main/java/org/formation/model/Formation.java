@@ -114,9 +114,16 @@ public class Formation extends BaseModel {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public boolean isRemboursee () {
-		if(this.statut.contentEquals("Remboursee")) {
-			return true;}
-		return false;
+		return this.statut.equals("Remboursee");
+	}
+
+	public boolean isFusionnee() {
+		return this.statut.equals("Fusionnee");
+	}
+
+	public boolean isAnnulee(){
+		return this.statut.equals("Annulee");
 	}
 }
