@@ -1,2 +1,4 @@
 # first_real_project
-Ceci est mon edit ouma
+Ceci n'est plus l'edit ouma mais l'edit de Lorena
+C'est nous la meilleur equipe
+merci Lucille

@@ -31,5 +31,14 @@ public class FormationTest extends TestCase {
 		assertTrue(new Formation("20210601",null, null, 250, "Remboursee","Original", 666).isRemboursee());
 		assertFalse(new Formation("20210602",null, null, 700, "Annulee","Original", 333).isRemboursee());
 
+	
+	public void testIsFusionnee() {
+		assertFalse(new Formation("20210528",  null, null,300,"Active","Original",1).isFusionnee());
+		assertTrue(new Formation("20210528",  null, null,300,"Fusionnee","Original",1).isFusionnee());
+	}
+
+	public void testIsAnnulee() {
+		assertFalse(new Formation("20210528",  null, null,300,"Active","Original",1).isAnnulee());
+		assertTrue(new Formation("20210528",  null, null,300,"Annulee","Original",1).isAnnulee());
 	}
 }
