@@ -114,4 +114,17 @@ public class Formation extends BaseModel {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-}
+	
+	// Fonction ajoutée par le groupe 3
+	public boolean hasFormateurRemplace(String statutFormateur) {
+		if(statutFormateur.equals("Annulé") ) 
+			return true;
+		
+		else return false;
+	}
+	
+		
+	}
+	
+	
+

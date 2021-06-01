@@ -1,8 +1,8 @@
 package org.formation.model;
 
 import java.util.List;
-
 import junit.framework.TestCase;
+
 
 public class FormationTest extends TestCase {
 	public void testToString()
@@ -26,4 +26,14 @@ public class FormationTest extends TestCase {
 		// an error
 		assertTrue(Formation.getAll() instanceof List<?>);
 	}
+	
+
+	public void testhasFormateurRemplace() {
+		 
+		Formation test = new Formation();
+		assertTrue(test.hasFormateurRemplace("Annulé"));
+		
+	
+}
+	
 }
