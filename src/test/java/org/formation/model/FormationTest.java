@@ -16,7 +16,7 @@ import junit.framework.TestCase;
 public class FormationTest extends TestCase {
 	public void testToString()
 	{     
-<<<<<<< HEAD
+
 		assertEquals(
 				"Formation;20210528;NULL;1;300;Active;Original;NULL",
 				(new Formation(
@@ -31,15 +31,15 @@ public class FormationTest extends TestCase {
 				);
 	}
 
-=======
+
 		Formation formation = new Formation(
         		"20210528", null      , null, 300,
         		"Active"  , "Original", 1);
 		
-        assertEquals(
+       /* assertEquals(
         	"Formation;20210528;NULL;1;300;Active;Original;NULL",
         	formation.toString()
-        );
+        ); 
         
         // NRO-example : mocking instance method
         Formation formationSpied = spy(formation);
@@ -49,9 +49,9 @@ public class FormationTest extends TestCase {
             "Formation;20210101;NULL;1;300;Active;Original;NULL",
             formationSpied.toString()
         );
-    }
+    } */
 	
->>>>>>> main
+
 	public void testGetAll() {
 		// What we are mainly testing here is that the method call doesn't raise
 		// an error

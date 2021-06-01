@@ -114,16 +114,29 @@ public class Formation extends BaseModel {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+<<<<<<< HEAD
 
 	public boolean isRemboursee () {
 		return this.statut.equals("Remboursee");
 	}
 
+=======
+	
+>>>>>>> refs/remotes/origin/manalgryffondor
 	public boolean isFusionnee() {
 		return this.statut.equals("Fusionnee");
 	}
+  
+  public boolean isRemboursee () {
+		return this.statut == "Remboursee";
+  }
 
 	public boolean isAnnulee(){
+<<<<<<< HEAD
 		return this.statut.equals("Annulee");
+=======
+		return this.statut == "Annulee";
+
+>>>>>>> refs/remotes/origin/manalgryffondor
 	}
 }
