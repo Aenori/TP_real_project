@@ -35,6 +35,7 @@ public class FormationBean {
 		if(formateur == null) { formateur = new Formateur(); }
 	}
 	
+	// NRO-example : stream & lambda function
 	public static List<Formation> getAllActiveFormations() {
 		return Formation.getAll()
 				// NRO : important !

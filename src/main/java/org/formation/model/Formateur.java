@@ -16,6 +16,7 @@ public class Formateur extends BaseModel {
 	private String nom;
 	private Integer Solde;
 	private Integer id;
+	
 	Set<Sujet> sujets = new HashSet();
 	
 	// Region static members
