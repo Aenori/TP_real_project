@@ -30,6 +30,7 @@ public class FormationTest extends TestCase {
 	public void testIsRemboursee() {
 		assertTrue(new Formation("20210601",null, null, 250, "Remboursee","Original", 666).isRemboursee());
 		assertFalse(new Formation("20210602",null, null, 700, "Annulee","Original", 333).isRemboursee());
+	}
 
 	
 	public void testIsFusionnee() {
