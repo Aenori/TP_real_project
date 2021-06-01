@@ -49,6 +49,12 @@ public class Formation extends BaseModel {
 		this.id = id;
 	}
 	
+	
+	public Formation(Formateur formateur, String statutFormateur) {
+		super();
+		this.formateur = formateur;
+		this.statutFormateur = statutFormateur;
+	}
 	public String getDate() {
 		return date;
 	}
