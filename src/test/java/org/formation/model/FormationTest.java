@@ -37,6 +37,13 @@ public class FormationTest extends TestCase {
             "Formation;ma date;NULL;1;300;Active;Original;NULL",
             formationSpied.toString()
         );
+        
+        when(formationSpied.getDate()).thenReturn("ma date");
+        
+        assertEquals(
+            "Formation;ma date;NULL;1;300;Active;Original;NULL",
+            formationSpied.toString()
+        );
     }
 	
 	public void testGetAll() {

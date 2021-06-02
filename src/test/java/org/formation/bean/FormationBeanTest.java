@@ -10,7 +10,7 @@ import org.formation.model.Formation;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.ArgumentMatchers;
-import org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.*;
 
 import junit.framework.TestCase;
 
@@ -35,10 +35,10 @@ public class FormationBeanTest extends TestCase {
 
 			assertEquals(0, Formation.getAll().size());
 
-			FormationBean fbMock = spy(FormationBean.class); 
+			FormationBean fbMock = spy(FormationBean.class);
 
-			when(fbMock.searchOrCreateFormateurByNom(ArgumentMatchers.anyString())).thenReturn(null);
-			when(fbMock.searchSujetByNom(ArgumentMatchers.anyString())).thenReturn(null);
+			when(fbMock.searchOrCreateFormateurByNom(anyString())).thenReturn(null);
+			when(fbMock.searchSujetByNom(anyString())).thenReturn(null);
 
 			Formation f = fbMock.addNewFormationImpl("2020", "formateur", "sujet", "200");
 			assertTrue(f.getFormateur() == null);
