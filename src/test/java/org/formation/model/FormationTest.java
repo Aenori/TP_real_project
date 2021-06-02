@@ -66,4 +66,14 @@ public class FormationTest extends TestCase {
 		assertFalse(new Formation("20210602",null, null, 700, "Annulee","Original", 333).isRemboursee());
 		
 	}
+	
+	public void testIsRembourseeMethodSpy()
+	{
+		Formation formationSpied = spy (Formation.class);
+		when (formationSpied.getStatut()).thenReturn("Remboursee");
+		
+		assertTrue (formationSpied.isRemboursee());
+		
+		
+	}
 }
