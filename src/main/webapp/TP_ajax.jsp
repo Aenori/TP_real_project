@@ -11,6 +11,10 @@
 	   <button id="button1" type="button">Exercice 1</button>
 	   <br></br>
 	   <button id="button2" type="button">Exercice 2</button>
+	   <br></br>
+	   <button id="button3" type="button">Exercice 3</button>
+	   <br></br>
+	   <p id="p1"></p>
       <script>
       	function exercice1() {
       		
@@ -25,6 +29,12 @@
         $(document).on("click", "#button2", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
             $.get("Exercice2", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
                 alert("Il est : "+JSON.stringify(responseText.heure));           // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
+            });
+        });
+        
+        $(document).on("click", "#button3", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+            $.get("Exercice3", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+            	document.getElementById("p1").innerHTML += JSON.stringify(responseText.citation)+"<br></br>";// Locate HTML DOM element with ID "somediv" and set its text content with the response text.
             });
         });
     </script>
