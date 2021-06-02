@@ -102,7 +102,7 @@ public class Fixture {
 		return newFormateur;
 	}
 	
-	 private static Formation addFormation( Formateur formateur,String statutFormateur) {
+	 private static Formation addFormation( Formateur formateur, String statutFormateur) {
 		 Formateur formateur1 = new Formateur("Formateur1", 2);
 		 Formation formation = new Formation(formateur1, "Annulé"); 
 		 formationFixture.add(formation);
