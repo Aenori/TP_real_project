@@ -8,12 +8,19 @@
    		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    </head> 
    <body>
-	   <button type="button" onclick="exercice1()">Exercice 1</button>
+	   <button id="button1" type="button">Exercice 1</button>
 		
       <script>
       	function exercice1() {
       		
       	}; 
-      </script>
+      	
+      
+        $(document).on("click", "#button1", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+            $.get("Exercice1", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+                alert(JSON.stringify(responseText["message"]));           // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
+            });
+        });
+    </script>
    </body>
 </html>
