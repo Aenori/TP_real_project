@@ -1,5 +1,6 @@
 package org.formation.model;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.formation.bean.FormationBean;
+import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
@@ -27,12 +29,12 @@ public class FormationTest extends TestCase {
         	formation.toString()
         );
         
-        // NRO-example : mocking instance method
+        // NRO-example : mocking instance method spy
         Formation formationSpied = spy(formation);
-        when(formationSpied.getDate()).thenReturn("20210101");
+        when(formationSpied.getDate()).thenReturn("ma date");
         
         assertEquals(
-            "Formation;20210101;NULL;1;300;Active;Original;NULL",
+            "Formation;ma date;NULL;1;300;Active;Original;NULL",
             formationSpied.toString()
         );
     }
@@ -41,7 +43,10 @@ public class FormationTest extends TestCase {
 		// What we are mainly testing here is that the method call doesn't raise
 		// an error
 		assertTrue(Formation.getAll() instanceof List<?>);
-		assertEquals(1,Formation.getAll().stream().filter(p -> p.getStatut().equals("Fusionnee")).collect(Collectors.toList()).size());
+	}
+	
+	public void testGetFusionnee() {
+		assertEquals(1,Formation.getAll().stream().filter(p -> p.isFusionnee()).collect(Collectors.toList()).size());
 	}
 	
 	public void testGetAllIncludeOneRembourse() {
@@ -60,11 +65,14 @@ public class FormationTest extends TestCase {
 		assertFalse(new Formation("20210528",  null, null,300,"Active","Original",1).isAnnulee());
 		assertTrue(new Formation("20210528",  null, null,300,"Annulee","Original",1).isAnnulee());
 	}
+
+	public void testOneOfAllAnnulee() {
+		assertEquals(Formation.getAll().stream().filter((s) -> s.isAnnulee()).count(),1);
+	}
 	
 	public void testIsRemboursee() {
 		assertTrue(new Formation("20210601",null, null, 250, "Remboursee","Original", 666).isRemboursee());
 		assertFalse(new Formation("20210602",null, null, 700, "Annulee","Original", 333).isRemboursee());
-		
 	}
 	
 	public void testIsRembourseeMethodSpy()

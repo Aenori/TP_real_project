@@ -49,6 +49,10 @@ public class Formation extends BaseModel {
 		this.id = id;
 	}
 
+	public Formation(String date, Sujet sujet, Formateur formateur, Integer paieFormateur) {
+		this(date, sujet, formateur, paieFormateur, "Active", "Original", Formation.getAll().size() + 1);
+	}
+
 	public String getDate() {
 		return date;
 	}
@@ -118,6 +122,7 @@ public class Formation extends BaseModel {
 	public boolean isRemboursee () {
 		return getStatut().equals("Remboursee");
 	}
+	
 	public boolean isFusionnee() {
 		return getStatut().equals("Fusionnee");
 	}

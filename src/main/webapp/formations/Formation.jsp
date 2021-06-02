@@ -8,6 +8,7 @@
    		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    </head> 
    <body>
+   	 <div id='main_section'>
    	  <table class="table table-striped">
    	  	<thead>
    	  		<th>id</th>
@@ -18,7 +19,7 @@
    	  		<th>statut</th>
    	  		<th>statutFormateur</th>
    	  	</thead>
-   	  	<tbody>
+   	  	<tbody id="formation_table_body">
    	  		<% List formations = (List)request.getAttribute("formations"); %>
    	  		<% for(Object f: formations) { %>
    	  			<tr>
@@ -41,22 +42,9 @@
          PaieFormateur: <input type = "integer" name = "paieFormateur" /><br />
          <input type = "submit" value = "Submit" />
       </form>
-      
-      <script>
-      	$('#addFormationForm').submit(function(event) {
-    	    event.preventDefault(); 
-    	    
-    	    var form = $(this);
-    	    $.ajax({
-    	      type: form.attr('method'),
-    	      url: form.attr('action'),
-    	      data: form.serialize()
-    	    }).done(function(data) {
-    	      // Optionally alert the user of success here...
-    	    }).fail(function(data) {
-    	      // Optionally alert the user of an error here...
-    	    });
-    	  });
+      </div>
+      <script src='js/formations/formationAjax.js'>
+        
       </script>
    </body>
 </html>
