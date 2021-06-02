@@ -62,12 +62,17 @@ public class FormationTest extends TestCase {
 	}
 
 	public void testIsAnnulee() {
-		assertFalse(new Formation("20210528",  null, null,300,"Active","Original",1).isAnnulee());
-		assertTrue(new Formation("20210528",  null, null,300,"Annulee","Original",1).isAnnulee());
+        Formation annuleeSpied = spy(Formation.class);
+        when(annuleeSpied.getStatut()).thenReturn("Annulee");
+        assertTrue(annuleeSpied.isAnnulee());
+        
+        Formation nonAnnuleeSpied = spy(Formation.class);
+        when(nonAnnuleeSpied.getStatut()).thenReturn("Active");
+        assertFalse(nonAnnuleeSpied.isAnnulee());
 	}
 
 	public void testOneOfAllAnnulee() {
-		assertEquals(Formation.getAll().stream().filter((s) -> s.isAnnulee()).count(),1);
+		assertEquals(1,Formation.getAll().stream().filter((s) -> s.isAnnulee()).count());
 	}
 	
 	public void testIsRemboursee() {

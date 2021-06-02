@@ -31,14 +31,15 @@ public class TPAjaxExercice3Servlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    			
-		Map<String, String> helloMap = new HashMap<String, String>();
-		helloMap.put("message", "Hello world !");
-		String helloJson = this.gson.toJson(helloMap);
+		Map<String, String> harryMap = new HashMap<String, String>();
+		int random = (int)(Math.random() * 4);
+		harryMap.put("citation", citations[random]);
+		String harryJson = this.gson.toJson(harryMap);
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        out.print(helloJson);
+        out.print(harryJson);
         out.flush();   
 	}
 }

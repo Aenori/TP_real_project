@@ -14,9 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/FormationAjax")
 public class FormationAjaxServlet extends HttpServlet {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private Gson gson = new Gson();
 	
@@ -35,6 +33,6 @@ public class FormationAjaxServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         out.print(formationJsonString);
-        out.flush();   
+        out.flush();
 	}
 }

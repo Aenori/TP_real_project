@@ -128,7 +128,7 @@ public class Formation extends BaseModel {
 	}
 
 	public boolean isAnnulee(){
-		return this.statut.equals("Annulee");
+		return getStatut().equals("Annulee");
 	}
 }
 
