@@ -35,6 +35,6 @@ public class FormationAjaxServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         out.print(formationJsonString);
-        out.flush();   
+        out.flush();
 	}
 }
