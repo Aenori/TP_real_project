@@ -24,6 +24,17 @@ public class TPAjaxExercice4Servlet extends HttpServlet {
 	private Gson gson = new Gson();
 	
 	@Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {
+		String name = request.getParameter("name");
+		String NameJsonString = this.gson.toJson("Hello "+name+" !");
+		
+		PrintWriter out = resp.getWriter();
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		out.print(NameJsonString);
+		out.flush();
+	}
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    			
 		Map<String, String> helloMap = new HashMap<String, String>();
 		helloMap.put("message", "Hello world !");

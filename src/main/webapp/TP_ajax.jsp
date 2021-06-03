@@ -15,7 +15,16 @@
 	   <button id="button3" type="button">Exercice 3</button>
 	   <br></br>
 	   <p id="p1"></p>
-      <script>
+	   <br></br>
+	   <form id="form1" action = "" method = "POST">
+	   		name: <input type = "integer" name = "name" /><br />
+	   		<input type = "submit" value = "Submit" />
+	   	</form>
+	   	<br></br>
+	   	<p id="pExercice4"></p>
+	   	<br></br>
+	   	
+	   	<script>
       	function exercice1() {
             $.get("Exercice1", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
                 alert(JSON.stringify(responseText.message));           // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
@@ -32,6 +41,17 @@
             $.get("Exercice3", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
             	document.getElementById("p1").innerHTML += JSON.stringify(responseText.citation)+"<br></br>";// Locate HTML DOM element with ID "somediv" and set its text content with the response text.
             });
+        });
+        
+        $(document).on("submit", "#form1",function(event){
+        	event.preventDefault();
+        	$.post(
+        			"Exercice4",
+        			$("#form1").serialize(),
+        			function(data){
+        				$("#pExercice4").text(data);
+        			}
+        	);
         });
     </script>
    </body>
