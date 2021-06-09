@@ -25,9 +25,13 @@ public class TPAjaxExercice5Servlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    			
-		Map<String, String> helloMap = new HashMap<String, String>();
-		helloMap.put("message", "Hello world !");
-		String helloJson = this.gson.toJson(helloMap);
+		String inputNumber = request.getParameter("nombre");
+		Double inputAsDouble = Double.parseDouble(inputNumber);
+		Double result = Math.sqrt(inputAsDouble);
+		
+		Map<String, String> resultMap = new HashMap<String, String>();
+		resultMap.put("result", result.toString());
+		String helloJson = this.gson.toJson(resultMap);
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
