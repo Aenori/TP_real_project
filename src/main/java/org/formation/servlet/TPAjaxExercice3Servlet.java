@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.formation.bean.FormationBean;
 import org.formation.model.Formation;
@@ -32,13 +33,12 @@ public class TPAjaxExercice3Servlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    			
 		Map<String, String> helloMap = new HashMap<String, String>();
-		helloMap.put("message", "Hello world !");
-		String helloJson = this.gson.toJson(helloMap);
-
+        helloMap.put("citation", citations[ThreadLocalRandom.current().nextInt(0, citations.length)]);
+		
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        out.print(helloJson);
+        out.print(this.gson.toJson(helloMap));
         out.flush();   
 	}
 }

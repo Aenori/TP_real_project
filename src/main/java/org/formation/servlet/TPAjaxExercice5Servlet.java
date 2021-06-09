@@ -2,7 +2,6 @@ package org.formation.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +15,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/Exercice2")
-public class TPAjaxExercice2Servlet extends HttpServlet {
+@WebServlet("/Exercice5")
+public class TPAjaxExercice5Servlet extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -26,14 +25,14 @@ public class TPAjaxExercice2Servlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    			
-		Map<String, String> timeMap = new HashMap<String, String>();
-		timeMap.put("time", new Date().toString());
-		String timeMapAsJson = this.gson.toJson(timeMap);
+		Map<String, String> helloMap = new HashMap<String, String>();
+		helloMap.put("message", "Hello world !");
+		String helloJson = this.gson.toJson(helloMap);
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        out.print(timeMapAsJson);
+        out.print(helloJson);
         out.flush();   
 	}
 }

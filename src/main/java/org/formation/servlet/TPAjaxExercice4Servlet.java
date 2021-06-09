@@ -26,7 +26,7 @@ public class TPAjaxExercice4Servlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    			
 		Map<String, String> helloMap = new HashMap<String, String>();
-		helloMap.put("message", "Hello world !");
+		helloMap.put("message", "Bonjour " + request.getParameter("nom") + " !");
 		String helloJson = this.gson.toJson(helloMap);
 
         PrintWriter out = resp.getWriter();
